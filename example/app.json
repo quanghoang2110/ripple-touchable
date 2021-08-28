@@ -1,0 +1,22 @@
+{
+  "name": "ripple-touchable-example",
+  "displayName": "RippleTouchable Example",
+  "expo": {
+    "name": "ripple-touchable-example",
+    "slug": "ripple-touchable-example",
+    "description": "Example app for ripple-touchable",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

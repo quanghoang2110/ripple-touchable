@@ -11,11 +11,13 @@ npm install ripple-touchable
 ## Usage
 
 ```js
-import RippleTouchable from "ripple-touchable";
+import RippleTouchable from "@starling-tech/ripple-touchable";
 
 // ...
 
-const result = await RippleTouchable.multiply(3, 7);
+<RippleTouchable onPress={() => {}} style={{ width: 240, height: 48 }}>
+    <Text>TEST BUTTON</Text>
+</RippleTouchable>
 ```
 
 ## Contributing

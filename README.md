@@ -5,7 +5,7 @@ ripple touch
 ## Installation
 
 ```sh
-npm install ripple-touchable
+npm install @starling-tech/ripple-touchable
 ```
 
 ## Usage

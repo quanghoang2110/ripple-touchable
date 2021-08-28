@@ -1,18 +1,14 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import RippleTouchable from 'ripple-touchable';
+import RippleTouchable from '../../src/index';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    RippleTouchable.multiply(3, 7).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <RippleTouchable onPress={() => {}} style={{ width: 240, height: 48 }}>
+        <Text>TEST BUTTON</Text>
+      </RippleTouchable>
     </View>
   );
 }

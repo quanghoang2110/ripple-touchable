@@ -1,6 +1,6 @@
 {
   "name": "@starling-tech/ripple-touchable",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "ripple touch",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",

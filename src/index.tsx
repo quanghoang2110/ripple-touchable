@@ -235,7 +235,7 @@ export default (props: Props) => {
 
   return (
     <TouchableWithoutFeedback {...touchableProps}>
-      <Animated.View pointerEvents="box-only">
+      <Animated.View {...props} pointerEvents="box-only">
         {children}
         <View style={[styles.container, containerStyle]}>
           {ripples.map(renderRipple)}

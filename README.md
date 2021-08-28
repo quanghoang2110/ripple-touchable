@@ -6,6 +6,7 @@ ripple touch
 
 ```sh
 npm install @starling-tech/ripple-touchable
+yarn add @starling-tech/ripple-touchable
 ```
 
 ## Usage

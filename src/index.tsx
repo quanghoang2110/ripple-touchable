@@ -8,6 +8,9 @@ import {
   I18nManager,
   StyleSheet,
   TouchableWithoutFeedbackProps,
+  LayoutChangeEvent,
+  StyleProp,
+  ViewStyle,
 } from 'react-native';
 
 type RippleType = {
@@ -30,6 +33,7 @@ type Props = {
   disabled?: boolean;
   children: any;
   nativeID?: string;
+  style?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
   //   onRippleAnimation: (
   //     animation: Animated.CompositeAnimation,
   //     callback: () => void,
@@ -70,7 +74,7 @@ export default (props: Props) => {
     };
   }, []);
 
-  function onLayout(event: any) {
+  function onLayout(event: LayoutChangeEvent) {
     let { width: w, height: h } = event.nativeEvent.layout;
     // let {onLayout} = this.props;
     // consoleLog(event, 'event');
@@ -161,7 +165,7 @@ export default (props: Props) => {
   }
 
   function renderRipple({
-    unique,
+    unique: key,
     progress,
     locationX,
     locationY,
@@ -191,7 +195,7 @@ export default (props: Props) => {
 
     // consoleLog(rippleStyle, 'rStyle');
 
-    return <Animated.View style={[styles.ripple, rippleStyle]} key={unique} />;
+    return <Animated.View style={[styles.ripple, rippleStyle]} key={key} />;
   }
 
   let {
@@ -224,7 +228,7 @@ export default (props: Props) => {
     onPressIn,
     onPressOut,
     onLongPress: props.onLongPress ? onLongPress : undefined,
-    ...('web' !== Platform.OS ? { nativeID } : null),
+    ...(Platform.OS !== 'web' ? { nativeID } : null),
   };
 
   let containerStyle = {
@@ -235,7 +239,11 @@ export default (props: Props) => {
 
   return (
     <TouchableWithoutFeedback {...touchableProps}>
-      <Animated.View {...props} pointerEvents="box-only">
+      <Animated.View
+        onLayout={onLayout}
+        style={props.style}
+        pointerEvents="box-only"
+      >
         {children}
         <View style={[styles.container, containerStyle]}>
           {ripples.map(renderRipple)}

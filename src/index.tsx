@@ -92,7 +92,7 @@ export default (props: Props) => {
       if (typeof props.onPress === 'function') {
         requestAnimationFrame(() => props.onPress && props.onPress(event));
       }
-
+      event.persist();
       startRipple(event);
     }
   }
@@ -103,18 +103,20 @@ export default (props: Props) => {
         () => props.onLongPress && props.onLongPress(event)
       );
     }
-
+    event.persist();
     startRipple(event);
   }
 
   function onPressIn(event: any) {
     if (typeof props.onPressIn === 'function') {
+      event.persist();
       props.onPressIn(event);
     }
   }
 
   function onPressOut(event: any) {
     if (typeof props.onPressOut === 'function') {
+      event.persist();
       props.onPressOut(event);
     }
   }
